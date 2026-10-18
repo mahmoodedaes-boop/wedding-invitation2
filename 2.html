@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f2e9">
+  <title>دعوة زفاف | فرحتنا تكتمل بكم</title>
+  <meta name="description" content="دعوة زفاف إلكترونية أنيقة">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #fbf7f0;
+      --paper: #fffdf9;
+      --gold: #b18a52;
+      --gold-dark: #86643b;
+      --ink: #43372e;
+      --muted: #7f7063;
+      --line: #e8dccb;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(ellipse at 10% 10%, rgba(211,184,143,.18), transparent 30%),
+        radial-gradient(ellipse at 90% 85%, rgba(211,184,143,.16), transparent 28%),
+        var(--ivory);
+      font-family: "Cairo", sans-serif;
+    }
+    .page { width: min(100% - 28px, 780px); margin: 24px auto; }
+    .invitation {
+      position: relative;
+      overflow: hidden;
+      background: rgba(255,253,249,.94);
+      border: 1px solid var(--line);
+      border-radius: 230px 230px 22px 22px;
+      box-shadow: 0 24px 70px rgba(77, 55, 31, .10);
+      text-align: center;
+      padding: 64px 26px 38px;
+    }
+    .invitation::before, .invitation::after {
+      content: "❧";
+      position: absolute;
+      color: rgba(177,138,82,.22);
+      font-family: Georgia, serif;
+      font-size: 100px;
+      line-height: 1;
+      top: 36px;
+    }
+    .invitation::before { right: 10px; transform: rotate(-35deg); }
+    .invitation::after { left: 10px; transform: scaleX(-1) rotate(-35deg); }
+    .ornament {
+      width: 86px; height: 86px; margin: 0 auto 14px;
+      border: 1px solid var(--gold); border-radius: 50%;
+      display: grid; place-items: center; color: var(--gold);
+      font-size: 34px; position: relative;
+    }
+    .ornament::before { content: ""; position: absolute; inset: 6px; border: 1px solid #ddc9aa; border-radius: 50%; }
+    .eyebrow { color: var(--gold-dark); letter-spacing: 2px; font-size: 13px; margin: 0 0 12px; }
+    h1, h2, .names, .quote { font-family: "Amiri", serif; font-weight: 400; }
+    h1 { font-size: clamp(32px, 7vw, 54px); line-height: 1.35; margin: 0; }
+    .intro { color: var(--muted); max-width: 480px; margin: 12px auto 22px; line-height: 2.1; font-size: 15px; }
+    .names { font-size: clamp(35px, 8vw, 62px); line-height: 1.5; color: var(--gold-dark); margin: 12px 0; }
+    .ampersand { display: inline-block; color: var(--gold); font-size: .7em; margin: 0 8px; }
+    .rule { display: flex; align-items: center; justify-content: center; gap: 12px; margin: 22px auto; color: var(--gold); }
+    .rule::before, .rule::after { content: ""; width: 70px; height: 1px; background: var(--line); }
+    .date-block { display: grid; grid-template-columns: 1fr auto 1fr; gap: 14px; align-items: center; max-width: 430px; margin: 24px auto; }
+    .date-side { font-size: 13px; color: var(--muted); line-height: 1.9; }
+    .date-day { color: var(--gold-dark); font-family: "Amiri", serif; font-size: 48px; line-height: 1; border-inline: 1px solid var(--line); padding: 0 20px; }
+    .date-day small { display: block; font-family: "Cairo", sans-serif; font-size: 12px; margin-top: 8px; }
+    .countdown { display: grid; grid-template-columns: repeat(4, 1fr); gap: 9px; max-width: 430px; margin: 25px auto; }
+    .time { background: #f8f1e6; border: 1px solid #eee1cf; padding: 12px 4px; border-radius: 12px; }
+    .time strong { display: block; font-family: "Amiri", serif; font-size: 28px; color: var(--gold-dark); font-weight: 400; }
+    .time span { font-size: 11px; color: var(--muted); }
+    .details { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin: 30px auto; max-width: 510px; }
+    .detail { border: 1px solid var(--line); border-radius: 14px; padding: 17px 10px; background: rgba(255,255,255,.55); }
+    .detail .symbol { color: var(--gold); font-size: 22px; }
+    .detail h3 { font-size: 14px; margin: 7px 0 4px; }
+    .detail p { font-size: 12px; color: var(--muted); margin: 0; line-height: 1.9; }
+    .buttons { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 25px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 7px; text-decoration: none; border-radius: 999px; padding: 12px 22px; font: 600 13px "Cairo", sans-serif; transition: transform .2s, background .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .primary { background: var(--gold-dark); color: white; }
+    .secondary { border: 1px solid var(--gold); color: var(--gold-dark); background: transparent; }
+    .quote { font-size: 22px; line-height: 1.9; color: var(--gold-dark); margin: 28px auto 8px; }
+    .footer { font-size: 12px; color: #9b8a79; margin-top: 22px; }
+    .edit-note { margin: 18px auto 0; padding: 12px 16px; border: 1px dashed #d7c4a7; border-radius: 12px; color: #76624c; font-size: 12px; line-height: 1.9; background: #fffaf1; }
+    @media (max-width: 480px) {
+      .page { width: min(100% - 16px, 780px); margin: 8px auto; }
+      .invitation { padding: 54px 16px 28px; border-radius: 150px 150px 18px 18px; }
+      .invitation::before, .invitation::after { font-size: 65px; top: 28px; }
+      .details { gap: 8px; }
+      .detail { padding: 13px 7px; }
+      .date-block { gap: 7px; }
+      .date-day { padding: 0 12px; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="invitation">
+      <div class="ornament" aria-hidden="true">♡</div>
+      <p class="eyebrow">بِسْمِ اللهِ الرَّحْمٰنِ الرَّحِيمِ</p>
+      <h1>بكل الحب والفرح</h1>
+      <p class="intro">يسرّنا دعوتكم لمشاركتنا أجمل لحظات العمر، فبحضوركم تكتمل فرحتنا وتزدان ليلتنا.</p>
+
+      <!-- غيّر أسماء العروسين من هنا -->
+      <div class="names"> محمود <span class="ampersand">&</span> سوسن </div>
+
+      <div class="rule">دعوة زفاف</div>
+      <p class="intro">نتشرّف بحضوركم ومشاركتكم فرحتنا في ليلة نبدأ فيها معًا حكاية عمر جديدة <br>ان شاء الله.</p>
+
+      <!-- غيّر التاريخ والوقت أدناه -->
+      <div class="date-block">
+        <div class="date-side">يوم<br><strong>السبت</strong></div>
+        <div class="date-day">5<small>12 / 2026</small></div>
+        <div class="date-side">الساعة<br><strong>8:30 مساءً</strong></div>
+      </div>
+
+      <div class="countdown" aria-label="العد التنازلي">
+        <div class="time"><strong id="days">--</strong><span>يوم</span></div>
+        <div class="time"><strong id="hours">--</strong><span>ساعة</span></div>
+        <div class="time"><strong id="minutes">--</strong><span>دقيقة</span></div>
+        <div class="time"><strong id="seconds">--</strong><span>ثانية</span></div>
+      </div>
+
+      <div class="details">
+        <div class="detail">
+          <div class="symbol">📍</div>
+          <h3>الاوتستراد عمان-الزرقاء </h3>
+          <p>قاعات ادونيس  </p>
+        </div>
+        <div class="detail">
+          <div class="symbol">♡∞</div>
+          <h3>يسعدنا حضوركم</h3>
+          <p>وجودكم أجمل هدية<br>ننتظركم بكل محبة</p>
+        </div>
+      </div>
+
+      <!-- استبدل رابط الخريطة بالرابط الحقيقي للقاعة -->
+      <div class="buttons">
+        <a class="btn primary" href="https://www.google.com/maps/place/%D9%82%D8%A7%D8%B9%D8%A7%D8%AA+%D8%A3%D8%AF%D9%88%D9%86%D9%8A%D8%B3+%D9%84%D9%84%D8%A7%D8%AD%D8%AA%D9%81%D8%A7%D9%84%D8%A7%D8%AA1%E2%80%AD/@32.0037119,36.0370673,17z/data=!3m1!4b1!4m6!3m5!1s0x151b66f2555cfca1:0xb8e4b61ff9f39bf0!8m2!3d32.0037119!4d36.0370673!16s%2Fg%2F11f28hhttg!18m1!1e1?entry=ttu&g_ep=EgoyMDI2MTAxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener">⌖ موقع القاعة</a>
+        <!-- استبدل رقم الهاتف برقم واتساب مع رمز الدولة، أرقام فقط -->
+        <a class="btn secondary" id="rsvp" href="https://wa.me/+962795314722" target="_blank" rel="noopener">♡ تأكيد الحضور</a>
+      </div>
+
+      <p class="quote">فرحتنا بوجودكم أجمل</p>
+      <p class="footer">بكل الود، ننتظركم لنحتفل معًا<br>
+       ♡ جنة الأطفال بيوتهم
+      </p>
+    </section>
+    <p class="edit-note"><strong>ملاحظة :</strong> يمنع التصوير حفاظاً على الخصوصية الرجاء عدم الاحراج </p>
+  </main>
+  <script>
+    // موعد الزفاف: السنة، الشهر (يناير = 0)، اليوم، الساعة، الدقيقة
+const weddingDate = new Date(2026, 11, 5, 20, 30, 0).getTime();
+    function updateCountdown() {
+      let diff = weddingDate - Date.now();
+      if (diff < 0) diff = 0;
+      const day = Math.floor(diff / 86400000);
+      const hour = Math.floor((diff % 86400000) / 3600000);
+      const minute = Math.floor((diff % 3600000) / 60000);
+      const second = Math.floor((diff % 60000) / 1000);
+      document.getElementById("days").textContent = day;
+      document.getElementById("hours").textContent = String(hour).padStart(2, "0");
+      document.getElementById("minutes").textContent = String(minute).padStart(2, "0");
+      document.getElementById("seconds").textContent = String(second).padStart(2, "0");
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>

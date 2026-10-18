@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دعوة زفاف </title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:wght@400;500&display=swap"
+    rel="stylesheet">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    :root {
+      --ivory: #f8f4eb;
+      --gold: #b49a62;
+      --dark-gold: #8f7545;
+      --ink: #514633;
+      --cream: #eee4d1;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at center, #fffdf8 0%, #f8f2e7 65%, #e9ddc6 100%);
+      font-family: 'Amiri', serif;
+      color: var(--ink);
+    }
+
+    .frame {
+      position: relative;
+      width: calc(100% - 36px);
+      max-width: 520px;
+      min-height: min(740px, calc(100svh - 36px));
+      padding: 45px 22px;
+      border: 1px solid rgba(180, 154, 98, 0.75);
+      outline: 1px solid rgba(180, 154, 98, 0.4);
+      outline-offset: 6px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      animation: fadeIn 1.6s ease both;
+    }
+
+    .corner {
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      color: var(--gold);
+      font-size: 28px;
+      line-height: 1;
+      opacity: 0.8;
+    }
+
+    .top-right {
+      top: 12px;
+      right: 12px;
+    }
+
+    .top-left {
+      top: 12px;
+      left: 12px;
+    }
+
+    .bottom-right {
+      bottom: 12px;
+      right: 12px;
+    }
+
+    .bottom-left {
+      bottom: 12px;
+      left: 12px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 15px;
+      letter-spacing: 3px;
+      color: var(--dark-gold);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 8vw, 47px);
+      font-weight: 400;
+      color: #8e754b;
+    }
+
+    .subtitle {
+      margin: 12px 0 0;
+      font-size: 19px;
+      line-height: 1.9;
+      color: #786b54;
+    }
+
+    .ornament {
+      margin-top: 12px;
+      color: var(--gold);
+      font-size: 23px;
+      letter-spacing: 8px;
+    }
+
+    /* المغلف */
+
+    .envelope-button {
+      position: relative;
+      display: block;
+      width: min(290px, 80vw);
+      height: 205px;
+      padding: 0;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      perspective: 1000px;
+      -webkit-tap-highlight-color: transparent;
+      filter: drop-shadow(0 15px 18px rgba(89, 69, 36, 0.13));
+      animation: float 4s ease-in-out infinite;
+    }
+
+    .envelope {
+      position: absolute;
+      inset: 15px 0 0;
+      overflow: visible;
+    }
+
+    .envelope-back {
+      position: absolute;
+      inset: 0;
+      background: #e7d9bd;
+      border: 1px solid #c8b58f;
+      border-radius: 3px;
+    }
+
+    .letter {
+      position: absolute;
+      left: 9%;
+      right: 9%;
+      top: 12px;
+      height: 150px;
+      padding-top: 28px;
+      background: #fffdf7;
+      border: 1px solid #e6dac4;
+      color: #9b8150;
+      font-size: 19px;
+      line-height: 1.8;
+      transition: transform 1s ease, opacity 0.7s ease;
+    }
+
+    .letter span {
+      display: block;
+      font-size: 29px;
+    }
+
+    .envelope-front {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      background: #f0e5d0;
+      clip-path: polygon(0 0, 50% 57%, 100% 0, 100% 100%, 0 100%);
+      border-radius: 3px;
+      border-bottom: 1px solid #c8b58f;
+    }
+
+    .envelope-front::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, transparent 49.5%, #d8c5a3 50%, transparent 50.8%),
+        linear-gradient(225deg, transparent 49.5%, #d8c5a3 50%, transparent 50.8%);
+      opacity: 0.7;
+    }
+
+    .envelope-flap {
+      position: absolute;
+      z-2: 3;
+      inset: 0 0 auto;
+      height: 115px;
+      background: #e9dcc3;
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      transform-origin: top center;
+      transition: transform 0.9s ease, opacity 0.6s ease;
+      border-top: 1px solid #c8b58f;
+    }
+
+    .seal {
+      position: absolute;
+      z-2: 5;
+      top: 83px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 57px;
+      height: 57px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid #d7bf88;
+      background:
+        radial-gradient(circle at 35% 30%, #d8c18b, #a88a4d 75%);
+      color: #fff8e9;
+      font-size: 29px;
+      box-shadow:
+        0 3px 8px rgba(89, 64, 25, 0.2),
+        inset 0 0 0 2px rgba(255, 255, 255, 0.25);
+      transition: opacity 0.4s ease, transform 0.5s ease;
+    }
+
+    .envelope-button:hover .seal {
+      transform: translateX(-50%) scale(1.08);
+    }
+
+    .envelope-button:focus-visible {
+      outline: 2px solid var(--dark-gold);
+      outline-offset: 8px;
+      border-radius: 8px;
+    }
+
+    .hint {
+      margin: 0;
+      color: #927d5b;
+      font-size: 16px;
+      animation: pulse 2.5s ease-in-out infinite;
+    }
+
+    .bottom-text {
+      margin: 0;
+      font-size: 15px;
+      color: #9a896c;
+      letter-spacing: 1px;
+    }
+
+    /* حركة فتح الدعوة */
+
+    .envelope-button.opening {
+      animation: none;
+      pointer-events: none;
+    }
+
+    .opening .envelope-flap {
+      transform: rotateX(180deg);
+      opacity: 0.25;
+    }
+
+    .opening .seal {
+      opacity: 0;
+      transform: translateX(-50%) scale(0.4);
+    }
+
+    .opening .letter {
+      transform: translateY(-100px);
+    }
+
+    .opening {
+      transform: scale(1.04);
+      transition: transform 0.7s ease;
+    }
+
+    .fade-out {
+      animation: fadeOut 0.9s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes float {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-9px);
+      }
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 0.65;
+      }
+
+      50% {
+        opacity: 1;
+      }
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(1.03);
+      }
+    }
+
+    @media (max-height: 650px) {
+      .frame {
+        min-height: calc(100svh - 30px);
+        padding: 25px 18px;
+      }
+
+      .envelope-button {
+        transform: scale(0.85);
+        margin: -8px 0;
+      }
+
+      .opening {
+        transform: scale(0.9);
+      }
+
+      .subtitle {
+        margin-top: 5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <main class="frame" id="mainFrame">
+
+    <span class="corner top-right">♡</span>
+    <span class="corner top-left">♕</span>
+    <span class="corner bottom-right">♕</span>
+    <span class="corner bottom-left">♡</span>
+
+    <header>
+      <p class="eyebrow">بكل الحب والفرح</p>
+      <h1>دعوة زفاف</h1>
+      <p class="subtitle">
+        لحظات استثنائية،<br>
+        وفرحة تكتمل بوجودكم
+      </p>
+      <div class="ornament"> ༻ 𝓢𝓜 ༺ </div>
+    </header>
+
+    <button class="envelope-button" id="openInvitation" type="button" aria-label="افتح مغلف دعوة الزفاف">
+      <span class="envelope">
+        <span class="envelope-back"></span>
+
+        <span class="letter">
+          بكل الحب ندعوكم
+          <span>♡</span>
+          لمشاركتنا فرحتنا
+        </span>
+
+        <span class="envelope-front"></span>
+        <span class="envelope-flap"></span>
+
+        <span class="seal">♡</span>
+      </span>
+    </button>
+
+    <p class="hint" id="hintText">اضغط على الختم لفتح دعوتك</p>
+
+    <footer>
+      <p class="bottom-text">دعوة خاصة • ذكرى لا تُنسى</p>
+    </footer>
+
+  </main>
+
+  <script>
+    const openButton = document.getElementById("openInvitation");
+    const mainFrame = document.getElementById("mainFrame");
+    const hintText = document.getElementById("hintText");
+
+    openButton.addEventListener("click", function () {
+      if (openButton.classList.contains("opening")) return;
+
+      openButton.classList.add("opening");
+      hintText.textContent = "تُفتح دعوتكم بكل الحب...";
+
+      setTimeout(function () {
+        mainFrame.classList.add("fade-out");
+      }, 900);
+
+      setTimeout(function () {
+        window.location.href = "2.html";
+      }, 1500);
+    });
+  </script>
+</body>
+
+</html>
